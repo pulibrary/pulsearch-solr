@@ -14,7 +14,7 @@ JETTY_USER=solr
 JETTY_LOGS=/var/log/solr
 ```
 
-Adjust any paths as needed, note that the memory setting are __extremely__ conservative, and that we're likely to change garbage collection strategies.
+Adjust any paths as needed. Note that the memory setting are __extremely__ conservative, and that we're likely to change garbage collection strategies.
 
 Note also that the value you set for JETTY_USER needs to own the application (SOLR_HOME) directory and the log directory. You won't get any handy log messages about what's wrong if you don't don this, so do it.
 
