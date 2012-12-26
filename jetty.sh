@@ -136,7 +136,9 @@ shift
 ##################################################
 # Read any configuration files
 ##################################################
-for CONFIG in /etc/default/jetty{,8} $HOME/.jettyrc; do
+#for CONFIG in /etc/default/jetty{,8} $HOME/.jettyrc; do
+
+for CONFIG in etc/default/jetty{,8}; do
   if [ -f "$CONFIG" ] ; then 
     readConfig "$CONFIG"
   fi
