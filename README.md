@@ -2,7 +2,7 @@ PUL Search Solr
 ===============
 This is an instance of [Solr 4.0][solr] pre-configured for PUL-Search. 
 
-On a production system you'll want to make a `solr` user to own and run Solr, (`sudo useradd -d /opt/apache/solr -s /sbin/false solr`) but for debugging it's easier to own and run Solr as yourself.
+On a production system you'll want to make a `solr` user to own and run Solr, (`sudo useradd -s /sbin/false pulsearch`) but for debugging it's easier to own and run Solr as yourself.
 
 Defaults for Solr / Jetty are in `pulsearch-solr/etc/default/jetty` (following conventions of an `/etc/default` file, but this way the configs can travel with the app). The only thing you're likely to need to adjust there is the JVM memory and garbage collection settings.
 
