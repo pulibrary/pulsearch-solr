@@ -1,0 +1,1 @@
+These are libs for the Solr webapp. Any libs for analyzers should go in `solr/lib`.
