@@ -27,8 +27,8 @@
         solr.RAMDirectoryFactory is memory based, not persistent, and doesn't work with replication. -->
   <directoryFactory name="DirectoryFactory" class="${solr.directoryFactory:solr.StandardDirectoryFactory}"/>
 
-  <lib dir="./lib/contrib/analysis-extras/lib" />
-  <lib dir="./lib/contrib/analysis-extras/lucene-libs" />
+  <lib dir="../lib/contrib/analysis-extras/lib" />
+  <lib dir="../lib/contrib/analysis-extras/lucene-libs" />
 
   <!-- <dataDir>${solr.blacklight-core.data.dir:}</dataDir> -->
   
