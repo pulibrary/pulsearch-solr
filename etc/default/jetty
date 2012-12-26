@@ -9,6 +9,5 @@ JAVA_OPTIONS="$JAVA_OPTIONS -Xms2G -Xmx2G -XX:+UseConcMarkSweepGC -XX:NewRatio=3
 # Memory settings above are for a very small test dataset.
 
 JETTY_HOME=$PWD  # start.jar should be here
-echo $JETTY_HOME
 JETTY_USER=pulsearch
 JETTY_LOGS=/var/log/jetty
