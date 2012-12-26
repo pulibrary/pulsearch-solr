@@ -22,7 +22,7 @@ JETTY_LOGS=/var/log/jetty
 
 Adjust any paths as needed. Note that the memory setting are __extremely__ conservative, and that we're likely to change garbage collection strategies.
 
-Note also that the value you set for JETTY_USER needs to own the application (SOLR_HOME) directory and the log directory. You won't get any handy log messages about what's wrong if you don't don this, so do it.
+Note also that the value you set for JETTY_USER needs to own the application directory (`solr.solr.home` above) and the log directory. You won't get any handy log messages about what's wrong if you don't do this, so do it.
 
 You can now start Solr with `jetty.sh start`.
 
@@ -30,6 +30,6 @@ Also, in a production environment, you'll want to register `jetty.sh` to be run 
  * ln -s `$SOLR_HOME/jetty.sh /etc/init.d/jetty`
  * Register the script: `sudo update-rc.d jetty defaults`
  * Start: `sudo service jetty start`
- * Confirm http://localhost:8983/solr
+ * Confirm <http://localhost:8983/solr>
 
  [solr]: <http://lucene.apache.org/solr> "Solr"
