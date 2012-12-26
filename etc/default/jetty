@@ -4,7 +4,7 @@ JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
 
 JAVA_OPTIONS="$JAVA_OPTIONS -Dsolr.solr.home=$PWD/cores "
 JAVA_OPTIONS="$JAVA_OPTIONS -Djava.util.logging.config.file=$PWD/etc/logging.properties " 
-JAVA_OPTIONS="$JAVA_OPTIONS -Xms2G -Xmx2G -XX:+UseConcMarkSweepGC -XX:NewRatio=3 "
+JAVA_OPTIONS="$JAVA_OPTIONS -Xms6G -Xmx6G -XX:+UseConcMarkSweepGC -XX:NewRatio=3 "
 
 # Memory settings above are for a very small test dataset.
 

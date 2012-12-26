@@ -4,9 +4,11 @@ This is an instance of [Solr 4.0][solr] pre-configured for PUL-Search.
 
 On a production system you'll want to make a `solr` user to own and run Solr, (`sudo useradd -s /sbin/false pulsearch`) but for debugging it's easier to own and run Solr as yourself.
 
-Defaults for Solr / Jetty are in `pulsearch-solr/etc/default/jetty` (following conventions of an `/etc/default` file, but this way the configs can travel with the app). The only thing you're likely to need to adjust there is the JVM memory and garbage collection settings.
+Defaults for running the webapp w/ Jetty are in `etc/default/jetty` (following conventions of an `/etc/default` file, but this way the configs can travel with the app). You can override this file by copying it to `jetty.local` and making changes. Note that only one or the other is read (there is no inheritance) and if a `jetty.local` file exists it will be used.
 
-Note that the value you set for JETTY_USER needs to own the application directory and the log directory. You won't get any handy log messages about what's wrong if you don't do this, so do it.
+The only things you're likely to need to adjust there are the JVM memory and garbage collection settings, and the `JETTY_USER`.
+
+The user you set for JETTY_USER needs to own the application directory and the log directory. You won't get any handy log messages about what's wrong if you don't do this, so do it.
 
 You can now start Solr with `jetty.sh start`.
 
