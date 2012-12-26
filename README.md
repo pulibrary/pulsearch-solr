@@ -8,10 +8,16 @@ Either way, you'll need this in /etc/default/jetty, with the appropriate values:
 
 ```
 JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
-JAVA_OPTIONS="$JAVA_OPTIONS -Dsolr.solr.home=/opt/apache/solr/cores -Djava.util.logging.config.file=etc/logging.properties -Xms2G -Xmx2G -XX:+UseConcMarkSweepGC -XX:NewRatio=3"
-JETTY_HOME=/opt/apache/solr  # start.jar should be here
-JETTY_USER=solr
-JETTY_LOGS=/var/log/solr
+
+JAVA_OPTIONS="$JAVA_OPTIONS -Dsolr.solr.home=/{PATH/TO}/pul_search_solr/cores "
+JAVA_OPTIONS="$JAVA_OPTIONS -Djava.util.logging.config.file=etc/logging.properties " 
+JAVA_OPTIONS="$JAVA_OPTIONS -Xms2G -Xmx2G -XX:+UseConcMarkSweepGC -XX:NewRatio=3 "
+
+# Memory settings above are for a very small test dataset.
+
+JETTY_HOME=/{PATH/TO}/pul_search_solr  # start.jar should be here
+JETTY_USER=pulsearch
+JETTY_LOGS=/var/log/jetty
 ```
 
 Adjust any paths as needed. Note that the memory setting are __extremely__ conservative, and that we're likely to change garbage collection strategies.

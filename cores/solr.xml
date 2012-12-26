@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-   This is an example of a simple "solr.xml" file for configuring one or 
-   more Solr Cores, as well as allowing Cores to be added, removed, and 
-   reloaded via HTTP requests.
-
-   More information about options available in this configuration file, 
-   and Solr Core administration can be found online:
-   http://wiki.apache.org/solr/CoreAdmin
--->
-
-<!--
  All (relative) paths are relative to the Solr Home Directory
   
   persistent: Save changes made via the API to this file
   sharedLib: path to a lib directory that will be shared across all cores
 -->
-<solr sharedLib="lib" persistent="false">
+<solr sharedLib="../lib" persistent="false">
 	<!-- by default, this is 50 @ WARN   -->
  <!--  <logging enabled="true">
   	<watcher size="100" threshold="INFO" />
@@ -26,7 +16,8 @@
     If 'null' (or absent), cores will not be manageable via request handler
   defaultCoreName: (optional) core to use when no core name is specified in an access url
   -->
-  <cores adminPath="/admin/cores" defaultCoreName="pul-search">
-    <core name="pul-search" instanceDir="pul-search0" dataDir="data"/>
+  <cores adminPath="/admin/cores" defaultCoreName="pul-search0">
+    <core name="pul-search0" instanceDir="pul-search0" dataDir="../data/pul-search0"/>
+    <core name="pul-search1" instanceDir="pul-search1" dataDir="../data/pul-search1"/>
   </cores>
 </solr>
