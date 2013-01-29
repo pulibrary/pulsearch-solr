@@ -1,0 +1,13 @@
+# jetty defaults (here instead of in /etc/default/jetty)
+
+JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
+
+JAVA_OPTIONS="$JAVA_OPTIONS -Dsolr.solr.home=$PWD/cores "
+JAVA_OPTIONS="$JAVA_OPTIONS -Djava.util.logging.config.file=$PWD/etc/logging.properties " 
+JAVA_OPTIONS="$JAVA_OPTIONS -Xms6G -Xmx6G -XX:+UseConcMarkSweepGC -XX:NewRatio=3 "
+
+# Memory settings above are for a very small test dataset.
+
+JETTY_HOME=$PWD  # start.jar should be here
+JETTY_USER=pulsearch
+JETTY_LOGS=/var/log/jetty

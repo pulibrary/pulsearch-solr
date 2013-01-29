@@ -2,27 +2,13 @@ PUL Search Solr
 ===============
 This is an instance of [Solr 4.1][solr] pre-configured for PUL-Search. 
 
-On a production system you'll want to make a `solr` user to own and run Solr, (`sudo useradd -d /opt/apache/solr -s /sbin/false solr`) but for debugging it's easier to own and run Solr as yourself.
+On a production system you'll want to make a `solr` user to own and run Solr, (`sudo useradd -s /sbin/false pulsearch`) but for debugging it's easier to own and run Solr as yourself.
 
-Either way, you'll need this in /etc/default/jetty, with the appropriate values:
+Defaults for running the webapp w/ Jetty are in `etc/default/jetty` (following conventions of an `/etc/default` file, but this way the configs can travel with the app). You can override this file by copying it to `jetty.local` and making changes. Note that only one or the other is read (there is no inheritance) and if a `jetty.local` file exists it will be used.
 
-```
-JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
+The only things you're likely to need to adjust there are the JVM memory and garbage collection settings, and the `JETTY_USER`.
 
-JAVA_OPTIONS="$JAVA_OPTIONS -Dsolr.solr.home=/{PATH/TO}/pul_search_solr/cores "
-JAVA_OPTIONS="$JAVA_OPTIONS -Djava.util.logging.config.file=etc/logging.properties " 
-JAVA_OPTIONS="$JAVA_OPTIONS -Xms2G -Xmx2G -XX:+UseConcMarkSweepGC -XX:NewRatio=3 "
-
-# Memory settings above are for a very small test dataset.
-
-JETTY_HOME=/{PATH/TO}/pul_search_solr  # start.jar should be here
-JETTY_USER=pulsearch
-JETTY_LOGS=/var/log/jetty
-```
-
-Adjust any paths as needed. Note that the memory setting are __extremely__ conservative, and that we're likely to change garbage collection strategies.
-
-Note also that the value you set for JETTY_USER needs to own the application (SOLR_HOME) directory and the log directory. You won't get any handy log messages about what's wrong if you don't don this, so do it.
+The user you set for JETTY_USER needs to own the application directory and the log directory. You won't get any handy log messages about what's wrong if you don't do this, so do it.
 
 You can now start Solr with `jetty.sh start`.
 

@@ -136,12 +136,28 @@ shift
 ##################################################
 # Read any configuration files
 ##################################################
-for CONFIG in /etc/default/jetty{,8} $HOME/.jettyrc; do
-  if [ -f "$CONFIG" ] ; then 
-    readConfig "$CONFIG"
-  fi
+#for CONFIG in /etc/default/jetty{,8} $HOME/.jettyrc; do
+
+defaults=""
+if [ -e etc/default/jetty.local ]; then
+  defaults="etc/default/jetty.local"
+else
+  defaults="etc/default/jetty"
+fi
+
+echo "Reading defaults from $defaults"
+
+for CONFIG in $defaults; do
+ if [ -f "$CONFIG" ] ; then 
+   readConfig "$CONFIG"
+ fi
 done
 
+#for CONFIG in etc/default/jetty{,8}; do
+#  if [ -f "$CONFIG" ] ; then 
+#    readConfig "$CONFIG"
+#  fi
+#done
 
 ##################################################
 # Set tmp if not already set.
