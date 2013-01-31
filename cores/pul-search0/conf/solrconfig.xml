@@ -480,6 +480,20 @@
     </arr>
   </requestHandler>
 
+  <!-- For blacklight_browse_nearby -->
+  <searchComponent name="termsComp" class="solr.TermsComponent"/>
+  <requestHandler name="/alphaTerms" class="solr.SearchHandler">
+    <lst name="defaults">
+      <str name="echoParams">explicit</str>
+      <bool name="terms">true</bool>
+      <bool name="terms.lower.incl">false</bool>
+      <str name="terms.sort">index</str>
+    </lst>
+    <arr name="components">
+      <str>termsComp</str>
+    </arr>
+  </requestHandler>
+
 <!-- Spell Check
 
         The spell check component can return a list of alternative spelling
