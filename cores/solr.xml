@@ -16,8 +16,9 @@
     If 'null' (or absent), cores will not be manageable via request handler
   defaultCoreName: (optional) core to use when no core name is specified in an access url
   -->
-  <cores adminPath="/admin/cores" defaultCoreName="pul-search0">
-    <core name="pul-search0" instanceDir="pul-search0" dataDir="../data/pul-search0"/>
-    <core name="pul-search1" instanceDir="pul-search1" dataDir="../data/pul-search1"/>
+  <cores adminPath="/admin/cores" defaultCoreName="pul-development">
+    <core name="pul-production" instanceDir="pul-production" dataDir="../data/pul-production"/>
+    <core name="pul-development" instanceDir="pul-development" dataDir="../data/pul-development"/>
+    <core name="pul-test" instanceDir="pul-development" dataDir="../data/pul-test"/>
   </cores>
 </solr>
