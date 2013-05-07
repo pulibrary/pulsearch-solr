@@ -532,14 +532,19 @@
    <!-- these fields are also used for display, so they must be stored -->
    <field name="isbn_t" type="text" indexed="true" stored="true" multiValued="true"/>
    <field name="language_facet" type="string" indexed="true" stored="true" multiValued="true" />
+   <field name="subjects_facet" type="string" indexed="true" stored="true" multiValued="true" />
    <field name="subject_topic_facet" type="string" indexed="true" stored="true" multiValued="true" />
    <field name="subject_era_facet" type="string" indexed="true" stored="true" multiValued="true" />
    <field name="subject_geo_facet" type="string" indexed="true" stored="true" multiValued="true" />
+   
    <!-- pub_date is used for facet and display so it must be indexed and stored -->
    <field name="pub_date" type="string" indexed="true" stored="true" multiValued="true"/>
    <!-- pub_date sort uses new trie-based int fields, which are recommended for any int and are displayable, sortable, and range-quer
    we use 'tint' for faster range-queries. -->
    <field name="pub_date_sort" type="tint" indexed="true" stored="true" multiValued="false"/>
+
+<!--    <field name="early_date" type="tdate" indexed="true" stored="true" multiValued="false"/>
+   <field name="late_date" type="tdate" indexed="true" stored="true" multiValued="false"/> -->
      
    <!-- format is used for facet, display, and choosing which partial to use for the show view, so it must be stored and indexed -->
    <field name="format" type="string" indexed="true" stored="true"/>
@@ -624,8 +629,10 @@
    
    <!-- sort fields -->
    <copyField source="pub_date" dest="pub_date_sort"/>
-   
-        
+    
+
+   <copyField source="subjects_facet" dest="subjects_display"/> 
+
    <!-- spellcheck fields -->
    <!-- default spell check;  should match fields for default request handler -->
    <!-- it won't work with a copy of a copy field -->
@@ -656,7 +663,6 @@
    <copyField source="subject_topic_facet" dest="opensearch_display"/>
    <copyField source="subject_t" dest="opensearch_display"/>
    <copyField source="subject_addl_t" dest="opensearch_display"/>  
-
 
    <!-- Above, multiple source fields are copied to the [text] field. 
 	  Another way to map multiple source fields to the same 
