@@ -1,6 +1,6 @@
 PUL Search Solr
 ===============
-This is an instance of [Solr 4.1][solr] pre-configured for PUL-Search. 
+This is an instance of [Solr ~~4.1~~ 4.3][solr] pre-configured for PUL-Search. 
 
 On a production system you'll want to make a `solr` user to own and run Solr, (`sudo useradd -s /sbin/false pulsearch`) but for debugging it's easier to own and run Solr as yourself.
 
